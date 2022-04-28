@@ -1,0 +1,57 @@
+
+mysql> desc song;
++------------------+--------------+------+-----+---------+----------------+
+| Field            | Type         | Null | Key | Default | Extra          |
++------------------+--------------+------+-----+---------+----------------+
+| song_id          | int unsigned | NO   | PRI | NULL    | auto_increment |
+| song_prefix      | char(10)     | NO   |     | NULL    |                |
+| song_title       | varchar(100) | NO   |     | NULL    |                |
+| song_releaseyear | char(4)      | NO   |     | NULL    |                |
+| song_dateentered | date         | NO   |     | NULL    |                |
+| song_datepeaked  | date         | NO   |     | NULL    |                |
+| song_rankpeaked  | int          | NO   |     | NULL    |                |
+| song_yearlyrank  | char(4)      | NO   |     | NULL    |                |
+| song_artist      | int unsigned | NO   | MUL | NULL    |                |
+| song_label       | int unsigned | NO   | MUL | NULL    |                |
++------------------+--------------+------+-----+---------+----------------+
+10 rows in set (0.25 sec)
+
+
+mysql> desc contributor;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| cont_id   | int unsigned | NO   | PRI | NULL    | auto_increment |
+| cont_name | varchar(200) | NO   |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+2 rows in set (0.03 sec)
+
+mysql> desc label;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| label_id   | int unsigned | NO   | PRI | NULL    | auto_increment |
+| label_name | varchar(30)  | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> desc rankingposition;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| rank_songid   | int unsigned | NO   | PRI | NULL    |       |
+| rank_week     | int          | NO   | PRI | NULL    |       |
+| rank_date     | date         | NO   |     | NULL    |       |
+| rank_position | int          | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc songwriter;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| write_songid | int unsigned | NO   | PRI | NULL    |       |
+| write_contid | int unsigned | NO   | MUL | NULL    |       |
+| write_order  | int          | NO   | PRI | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)

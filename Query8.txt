@@ -1,0 +1,40 @@
+mysql> select distinct songa.song_title, conta.cont_name, contb.cont_name, songa.song_rankpeaked, songb.song_rankpeaked, songa.song_datepeaked, songb.song_datepeaked from song as songa, song as songb, contributor as conta, contributor as contb where (songa.song_title = songb.song_title) and (songa.song_artist <> songb.song_artist) and (songa.song_artist = conta.cont_id) and (songb.song_artist = contb.cont_id) and (songa.song_releaseyear = '1969') and (songb.song_releaseyear = '1969') and (songa.song_id <> songb.song_id) order by song_title, songa.song_rankpeaked;
++-------------------------------+------------------------------+------------------------------+-----------------+-----------------+-----------------+-----------------+
+| song_title                    | cont_name                    | cont_name                    | song_rankpeaked | song_rankpeaked | song_datepeaked | song_datepeaked |
++-------------------------------+------------------------------+------------------------------+-----------------+-----------------+-----------------+-----------------+
+| Abraham, Martin And John      | Smokey Robinson              | Moms Mabley                  |              33 |              35 | 1969-07-19      | 1969-07-19      |
+| Abraham, Martin And John      | Moms Mabley                  | Smokey Robinson              |              35 |              33 | 1969-07-19      | 1969-07-19      |
+| By The Time I Get To Phoenix  | Isaac Hayes                  | Mad Lads, The                |              37 |              84 | 1969-10-18      | 1969-08-09      |
+| By The Time I Get To Phoenix  | Mad Lads, The                | Isaac Hayes                  |              84 |              37 | 1969-08-09      | 1969-10-18      |
+| Cloud Nine                    | Temptations, The             | Mongo Santamaria             |               6 |              32 | 1969-01-04      | 1969-03-08      |
+| Cloud Nine                    | Mongo Santamaria             | Temptations, The             |              32 |               6 | 1969-03-08      | 1969-01-04      |
+| Feeling Alright               | Joe Cocker                   | Mongo Santamaria             |              69 |              96 | 1969-07-19      | 1969-12-06      |
+| Feeling Alright               | Mongo Santamaria             | Joe Cocker                   |              96 |              69 | 1969-12-06      | 1969-07-19      |
+| Galveston                     | Glen Campbell                | Roger Williams               |               4 |              99 | 1969-04-12      | 1969-06-14      |
+| Galveston                     | Roger Williams               | Glen Campbell                |              99 |               4 | 1969-06-14      | 1969-04-12      |
+| Good Morning Starshine        | Oliver                       | Strawberry Alarm Clock       |               3 |              87 | 1969-07-12      | 1969-05-24      |
+| Good Morning Starshine        | Strawberry Alarm Clock       | Oliver                       |              87 |               3 | 1969-05-24      | 1969-07-12      |
+| Happy Heart                   | Andy Williams                | Petula Clark                 |              22 |              62 | 1969-05-31      | 1969-05-10      |
+| Happy Heart                   | Petula Clark                 | Andy Williams                |              62 |              22 | 1969-05-10      | 1969-05-31      |
+| I'll Never Fall In Love Again | Tom Jones                    | Burt Bacharach               |               6 |              93 | 1969-09-13      | 1969-07-12      |
+| I'll Never Fall In Love Again | Burt Bacharach               | Tom Jones                    |              93 |               6 | 1969-07-12      | 1969-09-13      |
+| Lodi                          | Creedence Clearwater Revival | Al Wilson                    |              52 |              67 | 1969-05-24      | 1969-09-13      |
+| Lodi                          | Al Wilson                    | Creedence Clearwater Revival |              67 |              52 | 1969-09-13      | 1969-05-24      |
+| Proud Mary                    | Creedence Clearwater Revival | Solomon Burke                |               2 |              45 | 1969-03-08      | 1969-06-07      |
+| Proud Mary                    | Creedence Clearwater Revival | Checkmates, Ltd., The        |               2 |              69 | 1969-03-08      | 1969-11-01      |
+| Proud Mary                    | Solomon Burke                | Creedence Clearwater Revival |              45 |               2 | 1969-06-07      | 1969-03-08      |
+| Proud Mary                    | Solomon Burke                | Checkmates, Ltd., The        |              45 |              69 | 1969-06-07      | 1969-11-01      |
+| Proud Mary                    | Checkmates, Ltd., The        | Solomon Burke                |              69 |              45 | 1969-11-01      | 1969-06-07      |
+| Proud Mary                    | Checkmates, Ltd., The        | Creedence Clearwater Revival |              69 |               2 | 1969-11-01      | 1969-03-08      |
+| The Weight                    | Aretha Franklin              | Diana Ross and the Supremes  |              19 |              46 | 1969-03-22      | 1969-10-04      |
+| The Weight                    | Diana Ross and the Supremes  | Aretha Franklin              |              46 |              19 | 1969-10-04      | 1969-03-22      |
+| These Eyes                    | Guess Who, The               | Jr. Walker & the All Stars   |               6 |              16 | 1969-05-31      | 1969-12-27      |
+| These Eyes                    | Jr. Walker & the All Stars   | Guess Who, The               |              16 |               6 | 1969-12-27      | 1969-05-31      |
+| Wichita Lineman               | Glen Campbell                | Sergio Mendes and Brasil '66 |               3 |              95 | 1969-01-11      | 1969-12-06      |
+| Wichita Lineman               | Sergio Mendes and Brasil '66 | Glen Campbell                |              95 |               3 | 1969-12-06      | 1969-01-11      |
++-------------------------------+------------------------------+------------------------------+-----------------+-----------------+-----------------+-----------------+
+30 rows in set (0.01 sec)
+
+mysql> notee
+
+I suspect my extra 3 rows came from the combinations of Proud Mary.
